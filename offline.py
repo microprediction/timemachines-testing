@@ -37,26 +37,27 @@ def optimize_random_skater(n=150,n_trials=15):
     timeout_file = timeouts_dir+fn
     failure_file = failures_dir+fn
     
-    with open(timeout_file) as fp
-        json.dump({"epoch_time":time.time()},fp)
+    with open(timeout_file) as fpt:
+        json.dump({"epoch_time":time.time()},fpt)
         
     # Try to optimize
     try:
       r_star, evaluation = optimize(f=f, ys=brownian_with_exogenous(n=n),
                       n_trials=n_trials, optimizer=optimizer)
       success = True
-    except:
-      suceess = False
-      
+    except Exception as e:
+      success = False
+
+    # Report
     if success:
-      os.remove(timeout_file)
-      success_file = 'eval_'+str( round(evaluation,6)) + '_r='+str(round(evaluation,6))+'.json'
-      data = {'r':r_star,'evaluation':evaluation}
-      with open(success_file) as fps:
-         json.dump(data,fps)
-    except Exception as e: 
-      with open(failure_file) as fpf:
-         json.dump({'error':str(e)})
+          os.remove(timeout_file)
+          success_file = 'eval_'+str( round(evaluation,6)) + '_r='+str(round(r_star,6))+'.json'
+          data = {'r':r_star,'evaluation':evaluation,'elapsed':time.time()-start_time,'n':n,'n_trials':n_trials}
+          with open(success_file) as fps:
+             json.dump(data,fps)
+    else:
+          with open(failure_file) as fpf:
+             json.dump({'error':str(e)},fpf)
        
 
 if __name__=='__main__':
