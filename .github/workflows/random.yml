@@ -48,7 +48,7 @@ jobs:
       
       - name: Commit
         run: |  
-          git commit -a -m "New parameters"
+          git commit -a -m "commiting test results"
           
       - name: Show git status
         run: | 
