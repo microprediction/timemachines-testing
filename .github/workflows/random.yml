@@ -31,6 +31,7 @@ jobs:
             pip install git+https://github.com/microprediction/microprediction.git
             pip install --upgrade statsmodels
             pip install matplotlib
+            pip install --upgrade timemachines
       - name: Create data in timestamp2
         run: |
           python random.py
