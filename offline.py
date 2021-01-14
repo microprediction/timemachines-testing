@@ -11,6 +11,7 @@ import json
 import traceback
 
 DATA = './data'
+NAME = 'brownian'
 
 
 def ensure_dir(path):
@@ -22,13 +23,15 @@ def random_json_file_name():
     return ''.join([random.choice('abcdef1234567890') for _ in range(12)]) + '.json'
 
 
-def optimize_random_skater(n=150, n_trials=15, n_dim=3):
+def optimize_random_skater(n=150, n_trials=15, n_dim=3, n_burn=110):
     start_time = time.time()
     o = random.choice(OPTIMIZERS)
     f = random.choice(SKATERS)
     ensure_dir(DATA)
-    ensure_dir(DATA + os.path.sep + f.__name__)
-    combo_dir = DATA + os.path.sep + f.__name__ + os.path.sep + o.__name__
+    STREAM = DATA+os.path.sep+NAME
+    ensure_dir(STREAM)
+    ensure_dir(STREAM + os.path.sep + f.__name__)
+    combo_dir = STREAM + os.path.sep + f.__name__ + os.path.sep + o.__name__
     ensure_dir(combo_dir)
     success_dir = combo_dir + os.path.sep + 'successes'
     failures_dir = combo_dir + os.path.sep + 'failures'
@@ -47,7 +50,7 @@ def optimize_random_skater(n=150, n_trials=15, n_dim=3):
     # Try to optimize
     try:
         best_val, best_x = optimize(f=f, ys=brownian_with_exogenous(n=n),
-                               n_trials=n_trials, n_dim=n_dim, n_burn = 20,
+                               n_trials=n_trials, n_dim=n_dim, n_burn=n_burn,
                                optimizer=o, evaluator=evaluate_mean_squared_error)
     except Exception as e:
         traceback.print_exc()
@@ -58,9 +61,12 @@ def optimize_random_skater(n=150, n_trials=15, n_dim=3):
         return None, None
 
     best_r = from_space(best_x)
-    success_file = 'eval_' + str(round(best_val, 6)) + '_r=' + str(round(best_r, 6)) + '.json'
+    success_file = success_dir + os.path.sep + 'best_val=' + str(round(best_val, 6)) + '_r=' + str(round(best_r, 6)) + '.json'
     data = {'best_r': best_r, 'best_x': tuple(list(best_x)), 'best_val': best_val, 'elapsed': time.time() - start_time, 'n': n,
             'n_trials': n_trials}
+    from pprint import pprint
+    print(success_file)
+    pprint(data)
     with open(success_file, 'wt') as fps:
         json.dump(data, fps)
     return best_val, best_r
