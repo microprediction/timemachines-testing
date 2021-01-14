@@ -60,6 +60,7 @@ def optimize_random_skater(n=150, n_trials=15, n_dim=3, n_burn=110):
             json.dump({'error': str(e)}, fpf)
         return None, None
 
+    os.remove(timeout_file)
     best_r = from_space(best_x)
     success_file = success_dir + os.path.sep + 'best_val=' + str(round(best_val, 6)) + '_r=' + str(round(best_r, 6)) + '.json'
     data = {'best_r': best_r, 'best_x': tuple(list(best_x)), 'best_val': best_val, 'elapsed': time.time() - start_time, 'n': n,
