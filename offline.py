@@ -54,10 +54,11 @@ def optimize_random_skater(n=150, n_trials=15, n_dim=3, n_burn=110):
                                optimizer=o, evaluator=evaluate_mean_squared_error)
     except Exception as e:
         traceback.print_exc()
+        tb = traceback.format_exc()
         print(str(e))
         os.remove(timeout_file)
         with open(failure_file, 'wt') as fpf:
-            json.dump({'error': str(e)}, fpf)
+            json.dump({'error': str(e),'traceback':tb}, fpf)
         return None, None
 
     os.remove(timeout_file)
