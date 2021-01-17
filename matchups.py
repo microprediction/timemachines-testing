@@ -42,6 +42,7 @@ def random_optimizer_matchup():
 
     white,black = np.random.choice(OPTIMIZERS,2,replace=False)
     f = random.choice(SKATERS)
+    print('Skater is '+f.__name__)
     evaluator = random.choice(EVALUATORS)
     names = mw.get_stream_names()
     n_lagged = 0
