@@ -1,8 +1,8 @@
 # Matches and Elo ratings for optimizers against synthetic objective functions
-from timemachines.optimization import optimize
+from timemachines.skaters.optimization import optimal_r
 from timemachines import OPTIMIZERS
 from timemachines.optimizers.odious import optimizer_name
-from timemachines.evaluation import EVALUATORS
+from timemachines.skaters.evaluation import EVALUATORS
 from timemachines import SKATERS
 from microprediction import MicroWriter
 import time
@@ -10,7 +10,6 @@ import random
 import json
 import os
 import numpy as np
-from ratings.elo import elo_expected
 from pprint import pprint
 
 try:

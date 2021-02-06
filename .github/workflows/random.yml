@@ -1,4 +1,4 @@
-# Example of a scheduled job that commits new data file
+# Example of a scheduled job that commits new regression_test_results file
 
 name: offline-testing
 
@@ -36,7 +36,7 @@ jobs:
       - name: Show git status
         run: | 
           git status
-      - name: Add data files  
+      - name: Add regression_test_results files
         run: |
           git config --local user.name  ${{ github.actor }}
           git config --local user.email "my@email.com"
