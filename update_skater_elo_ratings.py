@@ -21,7 +21,7 @@ if __name__=='__main__':
     except:
         elo = {}
 
-    # Update elo_k1 skater_elo_ratings
+    # Update elo skater_elo_ratings
     elo = skater_elo_update(elo=elo,k=k)
     pprint(sorted(list(zip(elo['rating'],elo['name']))))
 
@@ -50,7 +50,7 @@ if __name__=='__main__':
         package = name.split('_')[0]
         if package not in ['fbprophet', 'pmdarima', 'pydlm', 'flux', 'divinity']:
             package = 'timemachines'
-        SCORE_FILE = LEADERBOARD_DIR + os.path.sep + 'rank_'+str(pos).zfill(3) + '-elo_'+str(int(rating)).zfill(4)+'-package_'+package+'-variation_'+name+'-count_'+str(count)
+        SCORE_FILE = LEADERBOARD_DIR + os.path.sep +str(pos).zfill(3)+'-'+str(int(rating)).zfill(4)+'-'+name+'-'+str(count)
         pos+=1
         if not active:
             SCORE_FILE += '_inactive'
