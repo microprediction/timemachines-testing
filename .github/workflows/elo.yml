@@ -3,7 +3,7 @@ name: elo ratings
 
 on:
   schedule:
-    - cron:  '*/30 * * * *'
+    - cron:  '*/23 * * * *'
 
 defaults:
   run:
