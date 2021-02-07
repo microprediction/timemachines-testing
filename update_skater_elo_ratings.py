@@ -4,7 +4,12 @@ import json
 import os
 import random
 
-if __name__=='__main__':
+
+def update_elo_ratings_indefinitely():
+    while True:
+        update_elo_ratings_once()
+
+def update_elo_ratings_once():
     k = random.choice([1,2,3,5,8,13,21,34])
     ELO_PATH = os.path.dirname(os.path.realpath(__file__))+os.path.sep+'skater_elo_ratings'
 
@@ -62,3 +67,5 @@ if __name__=='__main__':
                            'traceback':traceback}, fp=fp)
 
 
+if __name__=='__main__':
+    update_elo_ratings_once()
