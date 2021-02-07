@@ -31,6 +31,7 @@ jobs:
             pip install --upgrade pandas
             pip install --upgrade git+https://github.com/microprediction/ratings.git
             pip install --upgrade git+https://github.com/microprediction/timemachines.git
+            pip install --upgrade git+https://github.com/microprediction/microprediction.git
       - name: randomized model testing
         run: |
           python run_regression_tests.py
