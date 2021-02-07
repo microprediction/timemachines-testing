@@ -43,6 +43,14 @@ jobs:
       - name: Show git status
         run: | 
           git status
+          
+      - name: git pull
+        run: | 
+          git pull
+          
+      - name: Show git status again
+        run: | 
+          git status
       
       - name: Commit
         run: |  
@@ -51,10 +59,6 @@ jobs:
       - name: Show git status
         run: | 
           git status
-          
-      - name: Show git status
-        run: | 
-          git pull
                     
       - name: Push changes
         uses: ad-m/github-push-action@master
