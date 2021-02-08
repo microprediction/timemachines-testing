@@ -1,5 +1,15 @@
-# timemachines-testing ![tests](https://github.com/microprediction/timemachines/workflows/tests/badge.svg) ![regression-tests](https://github.com/microprediction/timemachines-testing/workflows/regression-tests/badge.svg) ![elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/elo-ratings/badge.svg)
+# timemachines-testing ![tests](https://github.com/microprediction/timemachines/workflows/tests/badge.svg) ![regression-tests](https://github.com/microprediction/timemachines-testing/workflows/regression-tests/badge.svg) ![optimizer-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/optimizer-elo-ratings/badge.svg) ![skater-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/skater-elo-ratings/badge.svg)
 
 Standalone time intensive testing of the timemachines package. 
 
-In the process, Elo Ratings for time series algorithms are updated. 
+In the process, Elo Ratings are updated for optimizers and for time series models 
+
+### Optimizer leaderboards
+
+See [leaderboards](https://github.com/microprediction/timemachines-testing/tree/main/optimizer_elo_ratings/leaderboards/overall) for current rankings and Elo ratings. 
+
+
+### Time-series model leaderboards
+
+Arranged by how many steps ahead we predict. See [leaderboards](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards)
+
