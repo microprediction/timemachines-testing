@@ -131,8 +131,3 @@ dmypy.json
 
 config_private.py
 *private.py
-
-optimizer_elo_ratings/leaderboards/*
-skater_elo_ratings/leaderboards/*
-optimizer_elo_ratings/leaderboards
-skater_elo_ratings/leaderboards
