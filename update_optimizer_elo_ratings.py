@@ -29,7 +29,8 @@ def update_optimizer_elo_ratings_once():
 
     # Update elo skater_elo_ratings
     elo, match_params = optimizer_elo_update(elo=elo,n_dim_choices = N_DIM_CHOICES, n_trials_choices=N_TRIALS_CHOICES)
-    pprint(sorted(list(zip(elo['rating'],elo['name']))))
+    pprint(match_params)
+    pprint(sorted(list(zip(elo['rating'],elo['name'],elo['count']))))
 
     # Try to save
     with open(ELO_FILE, 'wt') as fp:
