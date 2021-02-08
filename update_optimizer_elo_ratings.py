@@ -6,7 +6,7 @@ import random
 
 
 N_DIM_CHOICES = [2, 3, 5, 8, 13, 21]
-N_TRIALS_CHOICES = [10,20,30,50, 80]
+N_TRIALS_CHOICES = [ 30, 50, 80, 130, 210, 340]
 
 
 def update_optimizer_elo_ratings_once():
@@ -59,6 +59,8 @@ def update_optimizer_elo_ratings_once():
         pos+=1
         if not active:
             SCORE_FILE += '_inactive'
+        if len(traceback) > 20 and 'naughty' in traceback:
+            SCORE_FILE += '_naughty'
         if len(traceback)>50:
             SCORE_FILE += '_FAILING'
         SCORE_FILE+='.json'

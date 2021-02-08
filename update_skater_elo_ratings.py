@@ -55,8 +55,8 @@ def update_elo_ratings_once():
         pos+=1
         if not active:
             SCORE_FILE += '_inactive'
-        if len(traceback)>50:
-            SCORE_FILE += '_failing'
+        elif len(traceback)>100:
+            SCORE_FILE += '_FAILING'
         SCORE_FILE+='.json'
         with open(SCORE_FILE, 'wt') as fp:
             json.dump(obj={'name':name,'package':package,'url':'https://pypi.org/project/'+package,
