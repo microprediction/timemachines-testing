@@ -1,19 +1,24 @@
-from timemachines.skaters.eloratings import skater_elo_update
+from timemachines.optimizers.eloratings import optimizer_elo_update
 from pprint import pprint
 import json
 import os
 import random
 
 
-def update_elo_ratings_once():
-    k = random.choice([1,2,3,5,8,13,21,34])
-    ELO_PATH = os.path.dirname(os.path.realpath(__file__))+os.path.sep+'skater_elo_ratings'
+N_DIM_CHOICES = [2, 3, 5, 8, 13, 21]
+N_TRIALS_CHOICES = [10,20,30,50, 80]
+
+
+def update_optimizer_elo_ratings_once():
+    # For now, just the overall performance is updated
+
+    ELO_PATH = os.path.dirname(os.path.realpath(__file__))+os.path.sep+'optimizer_elo_ratings'
 
     try:
         os.makedirs(ELO_PATH)
     except FileExistsError:
         pass
-    ELO_FILE = ELO_PATH + os.path.sep + 'univariate-k_'+str(k).zfill(3)+'.json'
+    ELO_FILE = ELO_PATH + os.path.sep + 'overall.json'
 
     # Try to resume
     try:
@@ -23,7 +28,7 @@ def update_elo_ratings_once():
         elo = {}
 
     # Update elo skater_elo_ratings
-    elo = skater_elo_update(elo=elo,k=k)
+    elo, match_params = optimizer_elo_update(elo=elo,n_dim_choices = N_DIM_CHOICES, n_trials_choices=N_TRIALS_CHOICES)
     pprint(sorted(list(zip(elo['rating'],elo['name']))))
 
     # Try to save
@@ -31,7 +36,7 @@ def update_elo_ratings_once():
         json.dump(elo,fp)
 
     # Write individual files so that the directory serves as a leaderboard
-    LEADERBOARD_DIR = ELO_PATH + os.path.sep + 'leaderboards'+os.path.sep+'univariate_'+ str(k).zfill(3)
+    LEADERBOARD_DIR = ELO_PATH + os.path.sep + 'leaderboards'+os.path.sep+'overall'
     try:
         os.makedirs(LEADERBOARD_DIR)
     except FileExistsError:
@@ -49,19 +54,20 @@ def update_elo_ratings_once():
     pos = 1
     for rating, name, count,active, traceback in sorted(list(zip(elo['rating'],elo['name'],elo['count'],elo['active'],elo['traceback'])),reverse=True):
         package = name.split('_')[0]
-        if package not in ['fbprophet', 'pmdarima', 'pydlm', 'flux', 'divinity']:
-            package = 'timemachines'
-        SCORE_FILE = LEADERBOARD_DIR + os.path.sep +str(pos).zfill(3)+'-'+str(int(rating)).zfill(4)+'-'+name+'-'+str(count)
+        strategy = name.replace('_cube','')
+        SCORE_FILE = LEADERBOARD_DIR + os.path.sep +str(pos).zfill(3)+'-'+str(int(rating)).zfill(4)+'-'+strategy+'-'+str(count)
         pos+=1
         if not active:
             SCORE_FILE += '_inactive'
         if len(traceback)>50:
-            SCORE_FILE += '_failing'
+            SCORE_FILE += '_FAILING'
         SCORE_FILE+='.json'
         with open(SCORE_FILE, 'wt') as fp:
-            json.dump(obj={'name':name,'package':package,'url':'https://pypi.org/project/'+package,
+            json.dump(obj={'name':name,'package':package,'strategy':strategy,
                            'traceback':traceback}, fp=fp)
 
 
 if __name__=='__main__':
-    update_elo_ratings_once()
+    update_optimizer_elo_ratings_once()
+
+
