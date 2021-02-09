@@ -5,7 +5,7 @@ import os
 import random
 
 
-def update_elo_ratings_once():
+def update_skater_elo_ratings_once():
     k = random.choice([1,2,3,5,8,13,21,34])
     ELO_PATH = os.path.dirname(os.path.realpath(__file__))+os.path.sep+'skater_elo_ratings'
 
@@ -64,4 +64,4 @@ def update_elo_ratings_once():
 
 
 if __name__=='__main__':
-    update_elo_ratings_once()
+    update_skater_elo_ratings_once()
