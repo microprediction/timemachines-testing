@@ -9,4 +9,4 @@ Ratings for time series models, including some widely used packages such as fbpr
 
 ### Optimizer Elo ratings and leaderboards
 
-The optimizer functionality is being moved to [HumpDay](https://github.com/microprediction/humpday). The precise methodology is revealed in [comparison/eloratings.py](https://github.com/microprediction/humpday/blob/main/humpday/comparison/eloratings.py). 
+The optimizer functionality is being moved to [HumpDay](https://github.com/microprediction/humpday). The precise methodology is revealed in [comparison/eloratings.py](https://github.com/microprediction/humpday/blob/main/humpday/comparison/eloratings.py) and explained in the article [HumpDay: A Package to Help You Choose a Python Global Optimizer](http://www.microprediction.com/blog/humpday).
