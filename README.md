@@ -1,6 +1,6 @@
 # timemachines-testing ![skater-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/skater-elo-ratings/badge.svg)
 
-Standalone testing of the [timemachines](https://github.com/microprediction/timemachines) package. This generates Elo ratings for popular time series packages as a byproduct. 
+Standalone testing of the [timemachines](https://github.com/microprediction/timemachines) package. This generates [Elo ratings](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards) for popular time series packages like fbprophet, as a byproduct. 
 
 
 ### Model Elo ratings and leaderboards
