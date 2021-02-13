@@ -2,12 +2,11 @@
 
 Standalone time intensive testing of the timemachines package that generates Elo ratings as a byproduct. 
 
-### Optimizer Elo ratings and leaderboards
-
-See [optimizer_elo_ratings/leaderboards](https://github.com/microprediction/timemachines-testing/tree/main/optimizer_elo_ratings/leaderboards/overall) for current rankings and Elo ratings of global optimization strategies. These are computed by random match-ups where an [objective](https://github.com/microprediction/timemachines/blob/main/timemachines/optimizers/objectives.py) function is chosen at random and the dimensionality of the search and number of allowed iterations is also randomly selected. The precise methodology is revealed in [optimizers/eloratings.py](https://github.com/microprediction/timemachines/blob/main/timemachines/optimizers/eloratings.py). 
-
 
 ### Model Elo ratings and leaderboards
 
 Ratings for time series models, including some widely used packages such as fbprophet, are produced separately for different horizons. Specifically, we create a different Elo rating for looking k=1 steps ahead versus k=13 steps ahead, say. A rating is produced for each k in the Fibonacci sequence. See [skater_elo_ratings/leaderboards](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards) sub-directories. For example some good ways to predict univariate time series 8 steps in advance might be suggested by the rankings at [/leaderboards/univariate_008](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards/univariate_008) but of course their are caveats. 
 
+### Optimizer Elo ratings and leaderboards
+
+The optimizer functionality is being moved to [HumpDay](https://github.com/microprediction/humpday). The precise methodology is revealed in [comparison/eloratings.py](https://github.com/microprediction/humpday/blob/main/humpday/comparison/eloratings.py). 
