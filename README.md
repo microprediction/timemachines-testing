@@ -1,4 +1,4 @@
-# timemachines-testing ![tests](https://github.com/microprediction/timemachines/workflows/tests/badge.svg) ![regression-tests](https://github.com/microprediction/timemachines-testing/workflows/regression-tests/badge.svg) ![optimizer-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/optimizer-elo-ratings/badge.svg) ![skater-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/skater-elo-ratings/badge.svg)
+# timemachines-testing ![skater-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/skater-elo-ratings/badge.svg)
 
 Standalone testing of the [timemachines](https://github.com/microprediction/timemachines) package. This generates Elo ratings for popular time series packages as a byproduct. 
 
