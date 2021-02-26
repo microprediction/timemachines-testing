@@ -1,9 +1,10 @@
-from timemachines.skaters.eloratings import skater_elo_update
+from timemachines.skatertools.comparison.skaterelo import skater_elo_update
 from pprint import pprint
 import json
 import os
 import random
 
+CAN_BLOW_AWAY = False
 
 def update_skater_elo_ratings_once():
     k = random.choice([1,2,3,5,8,13,21,34])
@@ -20,7 +21,10 @@ def update_skater_elo_ratings_once():
         with open(ELO_FILE,'rt') as fp:
             elo = json.load(fp)
     except:
-        elo = {}
+        if CAN_BLOW_AWAY:
+            elo = {}
+        else:
+            raise RuntimeError()
 
     # Update elo skater_elo_ratings
     elo = skater_elo_update(elo=elo,k=k)
