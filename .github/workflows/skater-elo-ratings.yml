@@ -31,6 +31,7 @@ jobs:
       - name: update elo ratings and test skaters
         run: |
           python update_skater_elo_ratings.py
+    
       - name: Show git status
         run: | 
           git status
@@ -46,20 +47,68 @@ jobs:
       - name: git pull
         run: | 
           git pull
-          
-      - name: Show git status again
-        run: | 
-          git status
       
       - name: Commit
         run: |  
           git commit -a -m "commiting test results"
           
-      - name: Show git status
-        run: | 
-          git status
-                    
       - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          
+          
+      - name: test skaters II
+        run: |
+          python update_skater_elo_ratings.py
+          
+      - name: git pull II
+        run: | 
+          git pull
+      
+      - name: Commit II
+        run: |  
+          git commit -a -m "commiting test results"
+          
+      - name: Push changes II
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          
+          
+      - name: test skaters III
+        run: |
+          python update_skater_elo_ratings.py
+          
+      - name: git pull III
+        run: | 
+          git pull
+      
+      - name: Commit III
+        run: |  
+          git commit -a -m "commiting test results"
+          
+      - name: Push changes III
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          
+      - name: test skaters IV
+        run: |
+          python update_skater_elo_ratings.py
+          
+      - name: git pull IV
+        run: | 
+          git pull
+      
+      - name: Commit IV
+        run: |  
+          git commit -a -m "commiting test results"
+          
+      - name: Push changes IV
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
