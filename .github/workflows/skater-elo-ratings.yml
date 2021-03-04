@@ -81,14 +81,14 @@ jobs:
       - name: test skaters III
         run: |
           python update_skater_elo_ratings.py
+        
+      - name: Commit III
+        run: |  
+          git commit -a -m "commiting test results"
           
       - name: git pull III
         run: | 
           git pull
-      
-      - name: Commit III
-        run: |  
-          git commit -a -m "commiting test results"
           
       - name: Push changes III
         uses: ad-m/github-push-action@master
@@ -100,7 +100,6 @@ jobs:
         run: |
           python update_skater_elo_ratings.py
           
-      
       - name: Commit IV
         run: |  
           git commit -a -m "commiting test results"
