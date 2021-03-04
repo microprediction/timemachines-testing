@@ -29,13 +29,23 @@ jobs:
             pip install microprediction
             pip install pystan
             pip install --upgrade git+https://github.com/microprediction/timemachines.git
+            
       - name: update elo ratings and test skaters
         run: |
           python update_skater_elo_ratings.py
-    
+   
+      - name: update elo ratings and test skaters
+        run: |
+          python update_skater_elo_ratings.py
+   
+      - name: update elo ratings and test skaters
+        run: |
+          python update_skater_elo_ratings.py
+   
       - name: Show git status
         run: | 
           git status
+          
       - name: Add regression_test_results files
         run: |
           git config --local user.name  ${{ github.actor }}
@@ -59,57 +69,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
           
-      - name: test skaters II
-        run: |
-          python update_skater_elo_ratings.py
-      
-      - name: Commit II
-        run: |  
-          git commit -a -m "commiting test results"
-          
-      - name: git pull II
-        run: | 
-          git pull
-          
-      - name: Push changes II
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          
-          
-      - name: test skaters III
-        run: |
-          python update_skater_elo_ratings.py
-        
-      - name: Commit III
-        run: |  
-          git commit -a -m "commiting test results"
-          
-      - name: git pull III
-        run: | 
-          git pull
-          
-      - name: Push changes III
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          
-      - name: test skaters IV
-        run: |
-          python update_skater_elo_ratings.py
-          
-      - name: Commit IV
-        run: |  
-          git commit -a -m "commiting test results"
-          
-      - name: git pull IV
-        run: | 
-          git pull
-          
-      - name: Push changes IV
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+     
