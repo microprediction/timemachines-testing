@@ -33,22 +33,6 @@ jobs:
         run: |
           python update_skater_elo_ratings.py
    
-      - name: update elo ratings and test skaters again
-        run: |
-          python update_skater_elo_ratings.py
-   
-      - name: update elo ratings and test skaters yet again
-        run: |
-          python update_skater_elo_ratings.py
-          
-      - name: update elo ratings one for the road
-        run: |
-          python update_skater_elo_ratings.py
-          
-      - name: update elo ratings two for the road
-        run: |
-          python update_skater_elo_ratings.py
-   
       - name: Show git status
         run: | 
           git status
