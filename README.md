@@ -1,4 +1,4 @@
-# timemachines-testing ([YOU ARE BEING REDIRECTED](https://github.com/microprediction/timeseries-elo-ratings)
+# timemachines-testing ([YOU ARE BEING REDIRECTED](https://github.com/microprediction/timeseries-elo-ratings))
 
 ### Deprecated
 
