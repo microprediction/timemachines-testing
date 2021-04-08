@@ -1,11 +1,13 @@
-# timemachines-testing ![skater-elo-ratings](https://github.com/microprediction/timemachines-testing/workflows/skater-elo-ratings/badge.svg)
+# timemachines-testing ([YOU ARE BEING REDIRECTED](https://github.com/microprediction/timeseries-elo-ratings)
 
-Testing the [timemachines](https://github.com/microprediction/timemachines) package. This generates [Elo ratings](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards) for popular time series packages as a byproduct. 
+### Deprecated
 
+The [timeseries-elo-ratings](https://github.com/microprediction/timeseries-elo-ratings) package contains nicer [Elo rating tables](https://microprediction.github.io/timeseries-elo-ratings/html_leaderboards/univariate-k_003.html) than here. I suggest you check it out. 
 
-### Model Elo ratings and leaderboards
+### 
 
-Ratings for time series models, including some widely used packages such as fbprophet, are produced separately for different horizons. Specifically, we create a different Elo rating for looking k=1 steps ahead versus k=13 steps ahead, say. A rating is produced for each k in the Fibonacci sequence. See [skater_elo_ratings/leaderboards](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards) sub-directories. For example some good ways to predict univariate time series 8 steps in advance might be suggested by the rankings at [/leaderboards/univariate_008](https://github.com/microprediction/timemachines-testing/tree/main/skater_elo_ratings/leaderboards/univariate_008) but of course their are caveats. 
+This repo may continue to be used for other styles of testing of the [timemachines](https://github.com/microprediction/timemachines) package. 
+
 
 ### Optimizer Elo ratings and leaderboards
 
